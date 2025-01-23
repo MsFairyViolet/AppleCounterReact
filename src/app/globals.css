@@ -1,0 +1,19 @@
+body {
+  background-color: lightgray;
+}
+
+.counter{
+  border: 2px solid rgb(64, 64, 205)
+}
+
+.day{
+  border: 2px solid red
+}
+
+.week-control{
+  border: 2px solid purple
+}
+
+.checkboxes{
+  border: 2px solid green
+}
