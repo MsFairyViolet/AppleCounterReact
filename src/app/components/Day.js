@@ -1,13 +1,17 @@
-import Checkboxes from "./Checkboxes";
-
-export default function Day() {
+export default function Day({name, MB, ML, RB, RL}) {
     return (
         <div className="day">
-            Day Component
-            <h3>Monday</h3>
+            <h3>{name}</h3>
+
             <button>Fill</button>
             <button>Clear</button>
-            <Checkboxes />
+
+            <div className="checkboxes">
+            <input type="checkbox" checked={MB}/><label>M breakfast</label>
+            <input type="checkbox" checked={ML}/><label>M lunch</label>
+            <input type="checkbox" checked={RB}/><label>R breakfast</label>
+            <input type="checkbox" checked={RL}/><label>R lunch</label>
+        </div>
         </div>
     )
 }
