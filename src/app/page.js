@@ -10,7 +10,7 @@ export default function Home() {
 
   const [days, setDays] = useState([{
     "name": "Wed",
-    "MB": false,
+    "MB": true,
     "ML": false,
     "RB": false,
     "RL": false,
@@ -93,7 +93,7 @@ export default function Home() {
   return (
     <div>
       <Counter count={count} updateCount={updateCount} />
-
+      < WeekControl setDays={setDays} />
       {days.map((day) => {
         return <Day name={day.name} MB={day.MB} ML={day.ML} RB={day.RB} RL={day.RL} setDays={setDays} />
       })}
