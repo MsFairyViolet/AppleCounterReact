@@ -7,6 +7,10 @@ export default function Counter({ count, updateCount }) {
     const handleInputChange = (event) => {
         let value = parseFloat(event.target.value)
 
+        if (isNaN(value)) {
+            return
+        }
+
         if (value < 0) {
             alert("No negative negatives")
             return

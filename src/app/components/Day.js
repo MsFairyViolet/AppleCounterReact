@@ -1,12 +1,12 @@
-export default function Day({ index, name, day, setDays }) {
+export default function Day({ index, name, day, setDays}) {
 
     const handleCheckboxChange = (field) => {
         setDays((prevDays) =>
-          prevDays.map((d, i) =>
-            i === index ? { ...d, [field]: !d[field] } : d
-          )
+            prevDays.map((d, i) =>
+                i === index ? { ...d, [field]: !d[field] } : d
+            )
         );
-      };
+    };
 
     return (
         <div className="day">

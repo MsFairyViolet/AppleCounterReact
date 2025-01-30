@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Day from "./components/Day"
 import WeekControl from "./components/WeekControl";
 import Counter from "./components/Counter";
@@ -83,35 +83,31 @@ export default function Home() {
     let checkedCheckboxes = days.reduce(
       (total, day) => total + Object.values(day).filter((value) => value === true).length, 0
     )
-    console.log("Counted: " + checkedCheckboxes)
     return checkedCheckboxes
   }
 
-  const handleCountClick = () => {
-    const totalChecked = countCheckedCheckboxes();
-    console.log(totalChecked)
-  };
-
-
-
   const updateCount = (change) => {
     const totalChecked = countCheckedCheckboxes();
-    const newCount = totalChecked - change
+    const newCount = totalChecked - (change || 0)
 
     if (newCount > 99) {
       alert("Crazy amount of apples")
       return
     }
+
     setCount(newCount)
   }
 
+  useEffect(() => {
+    updateCount(0)
+  }, [days])
+
   return (
     <div>
-      <button onClick={handleCountClick}>COUNT!</button>
       <Counter count={count} updateCount={updateCount} />
-      < WeekControl setDays={setDays} />
+      < WeekControl setDays={setDays}/>
       {days.map((day, index) => {
-        return <Day key={index} index={index} name={day.name} day={day} setDays={setDays} />
+        return <Day key={index} index={index} name={day.name} day={day} setDays={setDays}/>
       })}
 
     </div>
