@@ -10,7 +10,7 @@ export default function Home() {
 
   const [days, setDays] = useState([{
     "name": "Wed",
-    "MB": true,
+    "MB": false,
     "ML": false,
     "RB": false,
     "RL": false,
@@ -79,9 +79,24 @@ export default function Home() {
     "RL": false,
   }])
 
+  const countCheckedCheckboxes = () => {
+    let checkedCheckboxes = days.reduce(
+      (total, day) => total + Object.values(day).filter((value) => value === true).length, 0
+    )
+    console.log("Counted: " + checkedCheckboxes)
+    return checkedCheckboxes
+  }
+
+  const handleCountClick = () => {
+    const totalChecked = countCheckedCheckboxes();
+    console.log(totalChecked)
+  };
+
+
+
   const updateCount = (change) => {
-    const newCount = 10 - change
-    //10 has to be totalChecked later
+    const totalChecked = countCheckedCheckboxes();
+    const newCount = totalChecked - change
 
     if (newCount > 99) {
       alert("Crazy amount of apples")
@@ -92,6 +107,7 @@ export default function Home() {
 
   return (
     <div>
+      <button onClick={handleCountClick}>COUNT!</button>
       <Counter count={count} updateCount={updateCount} />
       < WeekControl setDays={setDays} />
       {days.map((day, index) => {
