@@ -94,8 +94,8 @@ export default function Home() {
     <div>
       <Counter count={count} updateCount={updateCount} />
       < WeekControl setDays={setDays} />
-      {days.map((day) => {
-        return <Day name={day.name} MB={day.MB} ML={day.ML} RB={day.RB} RL={day.RL} setDays={setDays} />
+      {days.map((day, index) => {
+        return <Day key={index} index={index} name={day.name} day={day} setDays={setDays} />
       })}
 
     </div>
