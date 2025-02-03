@@ -1,8 +1,4 @@
-import { useState } from "react"
-
-export default function Counter({ count, updateCount }) {
-
-    const [inputValue, setInputValue] = useState("")
+export default function Counter({ count, inputValue, setInputValue }) {
 
     const handleInputChange = (event) => {
         let value = parseFloat(event.target.value)
@@ -15,21 +11,18 @@ export default function Counter({ count, updateCount }) {
             alert("No negative negatives")
             return
         }
-        updateCount(value)
-        setInputValue(value)
+       setInputValue(value)
     }
 
     const onDecrement = () => {
         let newInputValue = Number(inputValue) - 1
         setInputValue(newInputValue)
-        updateCount(newInputValue)
         return
     }
 
     const onIncrement = () => {
         let newInputValue = Number(inputValue) + 1
         setInputValue(newInputValue)
-        updateCount(newInputValue)
         return
     }
 

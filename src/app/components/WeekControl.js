@@ -1,4 +1,4 @@
-export default function WeekControl({ setDays }) {
+export default function WeekControl({ setDays,  setInputValue }) {
     const setFullWeek = () => {
         setDays([{
             "name": "Wed",
@@ -220,6 +220,8 @@ export default function WeekControl({ setDays }) {
             "RB": false,
             "RL": false,
         }])
+
+    setInputValue("")
     }
     return (
         <div className="week-control">

@@ -7,6 +7,7 @@ import Counter from "./components/Counter";
 
 export default function Home() {
   const [count, setCount] = useState(0)
+  const [inputValue, setInputValue] = useState("")
 
   const [days, setDays] = useState([{
     "name": "Wed",
@@ -86,9 +87,12 @@ export default function Home() {
     return checkedCheckboxes
   }
 
-  const updateCount = (change) => {
+  const updateCount = () => {
     const totalChecked = countCheckedCheckboxes();
-    const newCount = totalChecked - (change || 0)
+
+    const inputNumber = Number(inputValue) || 0
+    const newCount = totalChecked - inputNumber
+    console.log("New Count:", newCount)
 
     if (newCount > 99) {
       alert("Crazy amount of apples")
@@ -99,13 +103,14 @@ export default function Home() {
   }
 
   useEffect(() => {
-    updateCount(0)
-  }, [days])
+    console.log("Days state changed:", days)
+    updateCount()
+  }, [days, inputValue])
 
   return (
     <div>
-      <Counter count={count} updateCount={updateCount} />
-      < WeekControl setDays={setDays}/>
+      <Counter count={count} updateCount={updateCount} inputValue={inputValue} setInputValue={setInputValue}/>
+      < WeekControl setDays={setDays} setInputValue={setInputValue}/>
       {days.map((day, index) => {
         return <Day key={index} index={index} name={day.name} day={day} setDays={setDays}/>
       })}
