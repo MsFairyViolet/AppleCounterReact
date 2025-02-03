@@ -10,32 +10,29 @@ export default function Day({ index, name, day, setDays }) {
 
     const fillDay = (index) => {
         setDays((prevDays) => {
-            console.log("Before update:", prevDays);
-    
             const newDays = prevDays.map((d, i) =>
                 i === index ? { ...d, MB: true, ML: true, RB: true, RL: true } : d
             );
-    
-            console.log("After update:", newDays);
+
             return newDays;
         });
     };
-    
+
 
     const clearDay = (index) => {
         setDays((prevDays) =>
             prevDays.map((d, i) =>
-                i === index ? { ...d, MB: false, ML: false, RB: false, RL: false} : d
+                i === index ? { ...d, MB: false, ML: false, RB: false, RL: false } : d
+            )
         )
-    )
     }
 
     return (
         <div className="day">
-            <h3>{name}</h3>
-
-            <button onClick={() => fillDay(index)}>Fill</button>
-            <button onClick={() => clearDay(index)}>Clear</button>
+            <div className="day-side">{name}
+                <button onClick={() => fillDay(index)}>Fill</button>
+                <button onClick={() => clearDay(index)}>Clear</button>
+            </div>
 
             <div className="checkboxes">
                 <label><input type="checkbox" checked={day.MB} onChange={() => handleCheckboxChange("MB")} />M breakfast</label>

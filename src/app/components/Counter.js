@@ -11,7 +11,7 @@ export default function Counter({ count, inputValue, setInputValue }) {
             alert("No negative negatives")
             return
         }
-       setInputValue(value)
+        setInputValue(value)
     }
 
     const onDecrement = () => {
@@ -27,11 +27,16 @@ export default function Counter({ count, inputValue, setInputValue }) {
     }
 
     return (
-        <div className="counter">
-            <h2>{count}</h2>
-            <button onClick={onDecrement}>-</button>
-            <input type="number" placeholder="minus" value={inputValue} onChange={handleInputChange} />
-            <button onClick={onIncrement}>+</button>
+        <div className="counter-container">
+            <div className="apple-count">
+                {count}
+            </div>
+            <div className="substract-container">
+                <button className="plus-btn" onClick={onDecrement}>-</button>
+                <input className="substract-number" type="number" placeholder="minus" value={inputValue} onChange={handleInputChange} />
+                <button className="minus-btn" onClick={onIncrement}>+</button>
+            </div>
         </div>
+
     )
 }

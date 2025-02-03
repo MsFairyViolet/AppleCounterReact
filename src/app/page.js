@@ -92,7 +92,6 @@ export default function Home() {
 
     const inputNumber = Number(inputValue) || 0
     const newCount = totalChecked - inputNumber
-    console.log("New Count:", newCount)
 
     if (newCount > 99) {
       alert("Crazy amount of apples")
@@ -103,16 +102,15 @@ export default function Home() {
   }
 
   useEffect(() => {
-    console.log("Days state changed:", days)
     updateCount()
   }, [days, inputValue])
 
   return (
-    <div>
-      <Counter count={count} updateCount={updateCount} inputValue={inputValue} setInputValue={setInputValue}/>
-      < WeekControl setDays={setDays} setInputValue={setInputValue}/>
+    <div className="page">
+      <Counter count={count} updateCount={updateCount} inputValue={inputValue} setInputValue={setInputValue} />
+      < WeekControl setDays={setDays} setInputValue={setInputValue} />
       {days.map((day, index) => {
-        return <Day key={index} index={index} name={day.name} day={day} setDays={setDays}/>
+        return <Day key={index} index={index} name={day.name} day={day} setDays={setDays} />
       })}
 
     </div>
