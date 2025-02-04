@@ -41,47 +41,12 @@
     }
 }
 
-.double-day {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-.double-day:last-of-type {
-    margin-bottom: 0;
-}
-/* Profile buttons */
-.profile-btns-div {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin: 0px 0px 10px 0px;
-}
-
-.profile-btn {
-    width: 147px;
-    height: 25px;
-    border: 2px solid var(--line-color);
-    background-color: var(--background-color);
-}
-
 .active {
     background-color: var(--secondary-color);
     border: 2px solid var(--box-border-color);
 }
 
-/* Week clearing button */
-.clear-week-btn {
-    height: 25px;
-    width: 90px;
-    border: 2px solid var(--line-color);
-}
 
-.day button {
-    width: 45px;
-    font-size: 12px;
-    margin: 3px 0px;
-}
 
 /* Error styles */
 .counter-container .error {

@@ -109,10 +109,11 @@ export default function Home() {
     <div className="page">
       <Counter count={count} updateCount={updateCount} inputValue={inputValue} setInputValue={setInputValue} />
       < WeekControl setDays={setDays} setInputValue={setInputValue} />
-      {days.map((day, index) => {
-        return <Day key={index} index={index} name={day.name} day={day} setDays={setDays} />
-      })}
-
+      <div className="days-container">
+        {days.map((day, index) => {
+          return <Day key={index} index={index} name={day.name} day={day} setDays={setDays} />
+        })}
+      </div>
     </div>
   );
 }

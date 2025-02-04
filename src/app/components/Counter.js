@@ -33,7 +33,7 @@ export default function Counter({ count, inputValue, setInputValue }) {
             </div>
             <div className="substract-container">
                 <button className="plus-btn" onClick={onDecrement}>-</button>
-                <input className="substract-number" type="number" placeholder="minus" value={inputValue} onChange={handleInputChange} />
+                <input className={`substract-number no-arrows`} type="number" placeholder="minus" value={inputValue} onChange={handleInputChange} />
                 <button className="minus-btn" onClick={onIncrement}>+</button>
             </div>
         </div>

@@ -225,8 +225,8 @@ export default function WeekControl({ setDays,  setInputValue }) {
     }
     return (
         <div className="week-control">
-            <button onClick={setFullWeek}>Full week</button>
-            <button onClick={clearWeek}>Clear</button>
-            <button onClick={setShortWeek}>Short week</button>
+            <button className="profile-btn" onClick={setFullWeek}>Full week</button>
+            <button className="clear-week-btn" onClick={clearWeek}>Clear</button>
+            <button className="profile-btn" onClick={setShortWeek}>Short week</button>
         </div>)
 }

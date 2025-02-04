@@ -1,5 +1,5 @@
 :root {
-    --background-color: rgb(251, 247, 245);
+    --background-color: rgb(253, 251, 250);
     --secondary-color: rgb(255, 255, 255);
     --line-color: rgb(79, 78, 78);
     --text-color: rgb(45, 45, 45);
@@ -27,23 +27,24 @@ body {
 }
 
 .page {
-    width: 400px;
-    height: 750px;
+    width: 410px;
+    height: 890px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     padding: 20px;
     border-radius: 10px;
 }
 
-/* Counter and apple count styles */
+/* Counter */
 .counter-container {
     border: 2px solid var(--line-color);
     border-radius: 20px;
     width: 100%;
     max-width: 200px;
-    height: 160px;
-    margin: 10px;
+    height: 180px;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,45 +63,95 @@ body {
     align-items: center;
 }
 
-.substract-number {
-    width: 115px;
-    height: 35px;
-    border: 1.5px solid var(--line-color);
-    border-radius: 5px;
-    text-align: center;
-    margin: 10px;
-}
-
 .substract-container {
     gap: 8px;
     flex-direction: row;
 }
+
+.substract-number {
+    width: 90px;
+    height: 30px;
+    border: 1.5px solid var(--line-color);
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 10px 10px 10px;
+}
+
+/* For Chrome, Safari, Edge, Opera */
+.no-arrows::-webkit-outer-spin-button,
+.no-arrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+.no-arrows {
+  -moz-appearance: textfield;
+}
+
+.plus-btn, .minus-btn {
+    height: 30px;
+    width: 30px;
+}
+
+/* Profile buttons */
+.week-control {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin: 0px 0px 10px 0px;
+}
+
+.profile-btn {
+    width: 130px;
+    height: 30px;
+    border: 2px solid var(--line-color);
+    background-color: var(--background-color);
+}
+
+.clear-week-btn {
+    height: 30px;
+    width: 90px;
+    border: 2px solid var(--line-color);
+}
+
+.active {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--box-border-color);
+}
+
 
 /* Button styles */
 button {
     cursor: pointer;
     border-radius: 5px;
     border: 1.5px solid var(--line-color);
-    padding: 5px 10px;
-}
-
-.plus-btn,
-.minus-btn {
-    height: 20px;
-    width: 20px;
+    background-color: var(--secondary-color);
 }
 
 /* Day styles */
+.days-container{
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.days-container:last-of-type {
+    margin-bottom: 0;
+}
+
 .day {
     border: 2px solid var(--line-color);
     border-radius: 10px;
-    width: 190px;
-    height: 105px;
+    width: calc(50% - 4px);
+    height: 115px;
     padding: 0px 3px;
     gap: 5px;
     font-size: 12px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     overflow: hidden;
 }
 
@@ -108,29 +159,53 @@ button {
     font-size: 14px;
     width: 48px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     border-right: 1.5px solid var(--line-color);
     padding: 0px 2px;
     white-space: nowrap;
 }
 
-/* Label and button inside day */
-.day label {
-    margin-bottom: 15px;
-    font-size: 15px;
-    font-weight: bold;
+.day-side button{
+    width: 40px;
+    height: 20px;
+    text-align: center;
+    font-size: 10px;
+    margin: 3px 0px;
 }
 
-/* Input styles for day */
+.checkboxes{
+    flex: 1;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+   
+}
+
+/* Label and button inside day */
+.checkboxes label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 11px;
+}
+
+/* Input styles for checkboxes */
 .day input {
     width: 25px;
     height: 25px;
 }
 
 /* Specific color overrides */
-.marieke input {
+.marieke {
     accent-color: var(--marieke-color);
 }
 
-.robin input {
+.robin {
     accent-color: var(--robin-color);
 }
+
