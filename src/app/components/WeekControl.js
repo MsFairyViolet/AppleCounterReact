@@ -231,7 +231,7 @@ export default function WeekControl({ setDays,  setInputValue }) {
             "RL": false,
         }])
     handleClick(0)
-    setInputValue(null)
+    setInputValue("")
     }
 
 
