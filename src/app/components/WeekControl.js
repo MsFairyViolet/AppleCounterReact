@@ -1,4 +1,14 @@
+import { useState } from "react"
+
 export default function WeekControl({ setDays,  setInputValue }) {
+
+    const [activeButton, setActiveButton] = useState(0)
+    
+    const handleClick = (buttonId) => {
+        setActiveButton((prevActiveButton) =>
+            prevActiveButton === buttonId ? null : buttonId)
+    }
+
     const setFullWeek = () => {
         setDays([{
             "name": "Wed",
@@ -70,7 +80,7 @@ export default function WeekControl({ setDays,  setInputValue }) {
             "RB": false,
             "RL": false,
         }])
-
+        handleClick(1)
     }
 
     const setShortWeek = () => {
@@ -145,8 +155,8 @@ export default function WeekControl({ setDays,  setInputValue }) {
                 "RB": false,
                 "RL": false,
             }]
-
         )
+        handleClick(2)
     }
 
     const clearWeek = () => {
@@ -220,13 +230,15 @@ export default function WeekControl({ setDays,  setInputValue }) {
             "RB": false,
             "RL": false,
         }])
-
-    setInputValue("")
+    handleClick(0)
+    setInputValue(null)
     }
+
+
     return (
         <div className="week-control">
-            <button className="profile-btn" onClick={setFullWeek}>Full week</button>
+            <button className={`profile-btn ${activeButton === 1 ? "active" : ""}`} onClick={setFullWeek}>Full week</button>
             <button className="clear-week-btn" onClick={clearWeek}>Clear</button>
-            <button className="profile-btn" onClick={setShortWeek}>Short week</button>
+            <button className={`profile-btn ${activeButton === 2 ? "active" : ""}`} onClick={setShortWeek}>Short week</button>
         </div>)
 }

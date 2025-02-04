@@ -28,7 +28,7 @@ export default function Counter({ count, inputValue, setInputValue }) {
 
     return (
         <div className="counter-container">
-            <div className="apple-count">
+            <div className={`apple-count ${count < 0 || count > 99 ? "error" : ""}`}>
                 {count}
             </div>
             <div className="substract-container">

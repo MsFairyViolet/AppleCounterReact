@@ -41,13 +41,6 @@
     }
 }
 
-.active {
-    background-color: var(--secondary-color);
-    border: 2px solid var(--box-border-color);
-}
-
-
-
 /* Error styles */
 .counter-container .error {
     color: var(--error-color);

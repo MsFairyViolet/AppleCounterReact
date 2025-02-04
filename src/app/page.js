@@ -93,11 +93,6 @@ export default function Home() {
     const inputNumber = Number(inputValue) || 0
     const newCount = totalChecked - inputNumber
 
-    if (newCount > 99) {
-      alert("Crazy amount of apples")
-      return
-    }
-
     setCount(newCount)
   }
 
