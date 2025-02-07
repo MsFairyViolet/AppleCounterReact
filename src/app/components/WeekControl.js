@@ -3,8 +3,7 @@ import { useState } from "react"
 export default function WeekControl({ setDays,  setInputValue }) {
 
     const [activeButton, setActiveButton] = useState(0)
-    
-    const handleClick = (buttonId) => {
+ const handleClick = (buttonId) => {
         setActiveButton((prevActiveButton) =>
             prevActiveButton === buttonId ? null : buttonId)
     }

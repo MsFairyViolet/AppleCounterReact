@@ -41,7 +41,3 @@
     }
 }
 
-/* Error styles */
-.counter-container .error {
-    color: var(--error-color);
-}
