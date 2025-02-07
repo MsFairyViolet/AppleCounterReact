@@ -20,7 +20,7 @@
 @media (max-width: 600px) {
     .page {
         width: 95vw;
-        padding: 1rem;
+        padding: 0.5rem;
     }
 
     .day {
@@ -149,12 +149,15 @@ button {
     margin-bottom: 1rem;
 }
 
+.days-container:last-of-type {
+    margin-bottom: 0;
+}
 
 .day {
     border: 2px solid var(--line-color);
     border-radius: 10px;
     width: calc(50% - 4px);
-    height: 7rem;
+    height: 7.4rem;
     font-size: 0.8rem;
     display: flex;
     flex-direction: row;
