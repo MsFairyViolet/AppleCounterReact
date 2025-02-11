@@ -1,7 +1,7 @@
-export default function Counter({ count, inputValue, setInputValue }) {
+export default function Counter({ count, subtractValue, setSubtractValue }) {
 
     const handleInputChange = (event) => {
-        let value = parseFloat(event.target.value)
+        const value = Number(event.target.value)
 
         if (isNaN(value)) {
             return
@@ -11,18 +11,18 @@ export default function Counter({ count, inputValue, setInputValue }) {
             alert("No negative negatives")
             return
         }
-        setInputValue(value)
+        setSubtractValue(value)
     }
 
     const onDecrement = () => {
-        let newInputValue = Number(inputValue) - 1
-        setInputValue(newInputValue)
+        const newSubtractValue = Number(subtractValue) - 1
+        setSubtractValue(newSubtractValue)
         return
     }
 
     const onIncrement = () => {
-        let newInputValue = Number(inputValue) + 1
-        setInputValue(newInputValue)
+        const newSubtractValue = Number(subtractValue) + 1
+        setSubtractValue(newSubtractValue)
         return
     }
 
@@ -33,7 +33,7 @@ export default function Counter({ count, inputValue, setInputValue }) {
             </div>
             <div className="substract-container">
                 <button className="plus-btn" onClick={onDecrement}>-</button>
-                <input className={`substract-number no-arrows`} type="number" placeholder="minus" value={inputValue} onChange={handleInputChange} />
+                <input className={`substract-number no-arrows`} type="number" placeholder="minus" value={subtractValue} onChange={handleInputChange} />
                 <button className="minus-btn" onClick={onIncrement}>+</button>
             </div>
         </div>

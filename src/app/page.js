@@ -4,81 +4,13 @@ import { useState, useEffect } from "react";
 import Day from "./components/Day"
 import WeekControl from "./components/WeekControl";
 import Counter from "./components/Counter";
+import { emptyWeek } from "./components/defaultWeeks";
 
 export default function Home() {
   const [count, setCount] = useState(0)
-  const [inputValue, setInputValue] = useState("")
+  const [subtractValue, setSubtractValue] = useState("")
 
-  const [days, setDays] = useState([{
-    "name": "Wed",
-    "MB": false,
-    "ML": false,
-    "RB": false,
-    "RL": false,
-  },
-  {
-    "name": "Thur",
-    "MB": false,
-    "ML": false,
-    "RB": false,
-    "RL": false,
-  },
-  {
-    "name": "Fri",
-    "MB": false,
-    "ML": false,
-    "RB": false,
-    "RL": false,
-  },
-  {
-    "name": "Sat",
-    "MB": false,
-    "ML": false,
-    "RB": false,
-    "RL": false,
-  },
-  {
-    "name": "Sun",
-    "MB": false,
-    "ML": false,
-    "RB": false,
-    "RL": false,
-  },
-  {
-    "name": "Mon",
-    "MB": false,
-    "ML": false,
-    "RB": false,
-    "RL": false,
-  },
-  {
-    "name": "Tue",
-    "MB": false,
-    "ML": false,
-    "RB": false,
-    "RL": false,
-  },
-  {
-    "name": "Wed",
-    "MB": false,
-    "ML": false,
-    "RB": false,
-    "RL": false,
-  },
-  {
-    "name": "Thur",
-    "MB": false,
-    "ML": false,
-    "RB": false,
-    "RL": false,
-  },
-  {
-    "name": "Fri",
-    "MB": false,
-    "ML": false,
-    "RB": false,
-    "RL": false,
-  }])
+  const [days, setDays] = useState(emptyWeek)
 
   const countCheckedCheckboxes = () => {
     let checkedCheckboxes = days.reduce(
@@ -90,7 +22,7 @@ export default function Home() {
   const updateCount = () => {
     const totalChecked = countCheckedCheckboxes();
 
-    const inputNumber = Number(inputValue) || 0
+    const inputNumber = Number(subtractValue) || 0
     const newCount = totalChecked - inputNumber
 
     setCount(newCount)
@@ -98,12 +30,12 @@ export default function Home() {
 
   useEffect(() => {
     updateCount()
-  }, [days, inputValue])
+  }, [days, subtractValue])
 
   return (
     <div className="page">
-      <Counter count={count} updateCount={updateCount} inputValue={inputValue} setInputValue={setInputValue} />
-      < WeekControl setDays={setDays} setInputValue={setInputValue} />
+      <Counter count={count} updateCount={updateCount} subtractValue={subtractValue} setSubtractValue={setSubtractValue} />
+      < WeekControl setDays={setDays} setSubtractValue={setSubtractValue} />
       <div className="days-container">
         {days.map((day, index) => {
           return <Day key={index} index={index} name={day.name} day={day} setDays={setDays} />
