@@ -29,9 +29,41 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 # AppleCounterReact
+
+## Creating and Releasing
+
+To create a new release, take the following steps:
+- Build a new docker image
+- Push the docker image to the private docker registry
+- Pull the new docker image on the server
+
+## Building a new image
+
+Building a new docker image:
+
+```bash
+docker build -t apple-counter-react .
+```
+
+## Pushing the image
+
+Make sure you are logged in to the private docker registry:
+```bash
+docker login registry.rmspek.nl -u [user]
+```
+
+
+```bash
+docker tag apple-counter-react:latest registry.rmspek.nl/apple-counter-react:latest
+docker push registry.rmspek.nl/apple-counter-react:latest
+```
+
+## Pulling the image on the server
+
+```bash
+ssh rmspek.nl
+cd /opt/docker/
+docker compose pull apple-counter-react
+docker compose restart apple-counter-react
+```
