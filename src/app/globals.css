@@ -41,7 +41,7 @@ body {
 .page {
     width: min(100vw, 410px);
     min-width: 325px;
-    height: 86vh;
+    height: 94vh;
     display: flex;
     flex-direction: column;
     align-items: center;
