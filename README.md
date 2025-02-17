@@ -63,7 +63,14 @@ docker push registry.rmspek.nl/apple-counter-react:latest
 
 ```bash
 ssh rmspek.nl
+```
+Make sure you are logged in to the private docker registry:
+```bash
+docker login registry.rmspek.nl -u [user]
+```
+
+```
 cd /opt/docker/
-docker compose pull apple-counter-react
-docker compose restart apple-counter-react
+docker compose pull apples
+docker compose up -d apples
 ```
