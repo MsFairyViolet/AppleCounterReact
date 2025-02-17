@@ -2,7 +2,7 @@ import "./globals.css";
 import Head from 'next/head'
 
 export const metadata = {
-  title: "Applecounter 2",
+  title: "Applecounter",
 };
 
 export default function RootLayout({ children }) {
