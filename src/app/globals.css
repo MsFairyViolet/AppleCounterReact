@@ -40,11 +40,12 @@
 
 body {
     background-color: var(--background-color);
+    overflow: hidden;
 }
 
 .page {
     width: 100vw;
-    min-width: 410px;
+    min-width: 408px;
     max-width: 500px;
     height: 93vh;
     display: flex;
