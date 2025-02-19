@@ -64,6 +64,8 @@ docker push registry.rmspek.nl/apple-counter-react:latest
 ```bash
 ssh rmspek.nl
 ```
+If you don't want to be here (anymore), CTRL+D.
+
 Make sure you are logged in to the private docker registry:
 ```bash
 docker login registry.rmspek.nl -u [user]
