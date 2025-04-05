@@ -1,4 +1,4 @@
-**##AppleCounter##**
+## AppleCounter
 
 A simple and interactive counter app built with React to track how many apples I need to order each week, based on our personal schedules. Great for practicing React state, props, and component composition.
 
@@ -7,11 +7,15 @@ Features:
 - Reset the count
 - Set amount based on 2 different schedules
 
+### Screenshots
+![Applecounter](https://github.com/user-attachments/assets/1a9fcd47-db41-46ff-affb-b41e6a99c52e)
+
+
 ---
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-**## Getting Started**
+## Getting Started
 
 First, run the development server:
 
