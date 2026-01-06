@@ -23,6 +23,12 @@ export default function Home() {
     const totalChecked = countCheckedCheckboxes();
 
     const inputNumber = Number(subtractValue) || 0
+
+    if (inputNumber < 0){
+      alert("Substraction can not be negative")
+      setSubtractValue("0")
+    }
+    
     const newCount = totalChecked - inputNumber
 
     setCount(newCount)
