@@ -1,4 +1,12 @@
-export const fullWeek = [
+interface Day {
+    name: string
+    MB: boolean,
+    ML: boolean,
+    RB: boolean,
+    RL: boolean
+}
+
+export const fullWeek: Day[] = [
     {
         "name": "Wed",
         "MB": false,
@@ -71,7 +79,7 @@ export const fullWeek = [
     }
 ]
 
-export const shortWeek = [
+export const shortWeek: Day[] = [
     {
         "name": "Wed",
         "MB": false,
@@ -144,7 +152,7 @@ export const shortWeek = [
     }
 ]
 
-export const emptyWeek = [
+export const emptyWeek: Day[] = [
     {
         "name": "Wed",
         "MB": false,
