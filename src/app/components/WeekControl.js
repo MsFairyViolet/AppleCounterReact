@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import { shortWeek, fullWeek, emptyWeek } from "./defaultWeeks"
+import { useEffect } from "react"
+import { shortWeek, emptyWeek } from "./defaultWeeks"
 
 export default function WeekControl({ setDays, setSubtractValue }) {
 
