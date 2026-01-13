@@ -1,7 +1,7 @@
 interface CounterProps {
     count: number,
-    subtractValue: number,
-    setSubtractValue: (value: number) => void
+    subtractValue: number | "",
+    setSubtractValue: (value: number | "") => void
 }
 
 export default function Counter({ count, subtractValue, setSubtractValue }: CounterProps) {
@@ -21,12 +21,12 @@ export default function Counter({ count, subtractValue, setSubtractValue }: Coun
     }
 
     const onDecrement = () => {
-        const newSubtractValue = subtractValue - 1
+        const newSubtractValue = Number(subtractValue) - 1
         setSubtractValue(newSubtractValue)
     }
 
     const onIncrement = () => {
-        const newSubtractValue = subtractValue + 1
+        const newSubtractValue = Number(subtractValue) + 1
         setSubtractValue(newSubtractValue)
     }
 
