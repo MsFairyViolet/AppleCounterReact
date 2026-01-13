@@ -1,4 +1,4 @@
-interface Day {
+export interface Day {
     name: string
     MB: boolean,
     ML: boolean,
