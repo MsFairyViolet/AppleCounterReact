@@ -1,6 +1,12 @@
-export default function Counter({ count, subtractValue, setSubtractValue }) {
+interface CounterProps {
+    count: number,
+    subtractValue: number | "",
+    setSubtractValue: (value: number | "") => void
+}
 
-    const handleInputChange = (event) => {
+export default function Counter({ count, subtractValue, setSubtractValue }: CounterProps) {
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = Number(event.target.value)
 
         if (isNaN(value)) {
@@ -17,13 +23,11 @@ export default function Counter({ count, subtractValue, setSubtractValue }) {
     const onDecrement = () => {
         const newSubtractValue = Number(subtractValue) - 1
         setSubtractValue(newSubtractValue)
-        return
     }
 
     const onIncrement = () => {
         const newSubtractValue = Number(subtractValue) + 1
         setSubtractValue(newSubtractValue)
-        return
     }
 
     return (

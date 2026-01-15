@@ -8,7 +8,8 @@ import { emptyWeek } from "./components/defaultWeeks";
 
 export default function Home() {
   const [count, setCount] = useState(0)
-  const [subtractValue, setSubtractValue] = useState("")
+  const [subtractValue, setSubtractValue] = useState<number | "">("")
+
 
   const [days, setDays] = useState(emptyWeek)
 
@@ -24,11 +25,11 @@ export default function Home() {
 
     const inputNumber = Number(subtractValue) || 0
 
-    if (inputNumber < 0){
+    if (inputNumber < 0) {
       alert("Substraction can not be negative")
-      setSubtractValue("0")
+      setSubtractValue(0)
     }
-    
+
     const newCount = totalChecked - inputNumber
 
     setCount(newCount)
@@ -40,13 +41,13 @@ export default function Home() {
 
   return (
     <div className="page">
-      <Counter count={count} updateCount={updateCount} subtractValue={subtractValue} setSubtractValue={setSubtractValue} />
-      < WeekControl setDays={setDays} setSubtractValue={setSubtractValue} />
+      <Counter count={count} subtractValue={subtractValue} setSubtractValue={setSubtractValue} />
+      <WeekControl setDays={setDays} setSubtractValue={setSubtractValue} />
       <div className="days-container">
         {days.map((day, index) => {
           return <Day key={index} index={index} name={day.name} day={day} setDays={setDays} />
         })}
       </div>
     </div>
-  );
+  )
 }
