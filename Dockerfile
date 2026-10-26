@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a parent image
-FROM node:18-alpine AS builder
+FROM node:26-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Use a minimal runtime image
-FROM node:18-alpine AS runner
+FROM node:26-alpine AS runner
 
 # Set working directory
 WORKDIR /app
@@ -30,7 +30,7 @@ COPY --from=builder /app/node_modules node_modules
 COPY --from=builder /app/public public
 
 # Set environment variable to production
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 # Expose the Next.js port
 EXPOSE 3000
